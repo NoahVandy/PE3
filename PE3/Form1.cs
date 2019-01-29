@@ -23,13 +23,20 @@ namespace PE3
 
         private void convertButton_Click_1(object sender, EventArgs e)
         {
-            //get pounds from poundsBox
-            string strPounds = txtBox_pounds.Text;
-            double pounds = double.Parse(strPounds);
-            //convert pounds to kilos
-            double kilos = pounds / 2.205;
-            //display kilos from pounds
-            txtBox_kilos.Text = kilos.ToString();
+            try
+            {
+                //get pounds from poundsBox
+                string strPounds = txtBox_pounds.Text;
+                double pounds = double.Parse(strPounds);
+                //convert pounds to kilos
+                double kilos = pounds / 2.205;
+                //display kilos from pounds
+                txtBox_kilos.Text = kilos.ToString(".000");
+            }
+            catch
+            {
+                txtBox_kilos.Text = "Error";
+            }
         }
     }
 }
